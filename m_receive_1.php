@@ -1,29 +1,25 @@
 <?php
-//接收，需要填入土地证和房产证信息
+//接收，需要填入合一证信息
 error_reporting(E_ALL || ~E_NOTICE);
 
-$landName = $_POST['landName'];
-$houseName = $_POST['houseName'];
+$Name = $_POST['Name'];
 $ownerName = $_POST['ownerName'];
 $IdNumber = $_POST['IdNumber'];
 $ManagerId = $_POST['ManagerId'];
-$landEPC = $_POST['landEPC'];
-$houseEPC = $_POST['houseEPC'];
+$EPC = $_POST['EPC'];
 $receiveTime = $_POST['receiveTime'];
-// $landName = 'landName';
-// $houseName ='houseName';
+// $Name = 'Name';
 // $ownerName = '赵宪栋';
 // $IdNumber = '130535199901012223';
 // $ManagerId = 123;//客户经理ID可能输入错误或者没有注册过
-// $landEPC = '143545435483957843753948';
-// $houseEPC = '154357984378967497549493';
-// $receiveTime = '2016-8-17';
+// $EPC = '154357984378967497549413';
+// $receiveTime = '2016-8-18';
 
 
 
 require_once 'db_functions.php';
 $db = new DB_functions();
-$ret = $db->receive_2($landName,$houseName,$ownerName,$IdNumber,$ManagerId,$landEPC,$houseEPC,$receiveTime);
+$ret = $db->receive_1($Name,$ownerName,$IdNumber,$ManagerId,$EPC,$receiveTime);
 switch ($ret) {
 	case 0:
 		$re['errorCode'] = 0;

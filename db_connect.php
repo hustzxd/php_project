@@ -28,7 +28,12 @@ class DB_Connect {
     public function close() {
         mysql_close();
     }
- 
+    public function log($info){
+        error_log(date("[Y-m-d H:i:s]")
+        ." -[".$_SERVER['REQUEST_URI'].
+        "] :".$info."\n", 
+        3, "info.log");
+    }
 }
  
 ?>
